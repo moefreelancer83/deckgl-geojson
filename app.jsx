@@ -11,21 +11,9 @@ import {
 } from "@deck.gl/core";
 import { scaleThreshold } from "d3-scale";
 
-// source of local geojson data
-const dataSource =
-  "/Users/moesalari/Documents/Codes/Moduluc/mint/blockciti/map/blockciti_map_D3/leaflet_geojson/data/art_district_Tier_2.geojson";
-
-// read in geojson data and save to variable
-const data = fetch(dataSource)
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-    return data;
-  });
-
 // // Source data GeoJSON
 const DATA_URL =
-  "https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/geojson/vancouver-blocks.json"; // eslint-disable-line
+  "https://raw.githubusercontent.com/moefreelancer83/deckgl-geojson/main/data/testData.geojson"; // eslint-disable-line
 
 export const COLOR_SCALE = scaleThreshold()
   .domain([
@@ -49,8 +37,8 @@ export const COLOR_SCALE = scaleThreshold()
   ]);
 
 const INITIAL_VIEW_STATE = {
-  latitude: 49.254,
-  longitude: -123.13,
+  latitude: 0,
+  longitude: 0,
   zoom: 11,
   maxZoom: 16,
   pitch: 0,
@@ -121,7 +109,7 @@ export default function App({ data = DATA_URL, mapStyle = MAP_STYLE }) {
       wireframe: true,
       // getElevation: (f) => Math.sqrt(f.properties.valuePerSqm) * 10,
       getFillColor: (f) => COLOR_SCALE(f.properties.growth),
-      getLineColor: [255, 255, 255],
+      getLineColor: [25, 250, 100],
       pickable: true,
     }),
   ];
